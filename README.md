@@ -1,34 +1,17 @@
-# Next
+# Next-Video
 
-مشغّل فيديو + مشغّل موسيقى في تطبيق واحد (Kotlin + Jetpack Compose + Media3).
-(الاسم القديم: Flow Player)
+## العربية
+مشغل فيديو لأندرويد مبني باستخدام Kotlin وJetpack Compose وMedia3. يدعم تشغيل الفيديوهات المحلية، الترجمة، السرعة، ملء الشاشة، الصورة داخل صورة، وتشغيل الوسائط في الخلفية.
 
-## البناء
-1. ارفع كل الملفات في الجذر من غير فولدرات (الخطوط tajawal_*.ttf كمان في الجذر). أي ملف .kt أو .ttf جديد بيتجمع لوحده وقت البناء. الفولدر الوحيد: `.github/workflows/build.yml`.
-2. الـ Workflow (`.github/workflows/build.yml`) بيرتّب الملفات ويبني الـ APK لوحده.
-3. الـ APK بيظهر في Releases باسم `Next.apk`.
+## English
+An Android video player built with Kotlin, Jetpack Compose, and Media3. It supports local videos, subtitles, playback speed, full-screen playback, picture-in-picture, and background media playback.
 
-حزمة التطبيق: `app.flowplay` (اتسابت زي ما هي عشان التحديث يفضل فوق النسخة القديمة من غير ما تفقد بياناتك).
+## Build
+يتم بناء APK من خلال GitHub Actions. مفاتيح التوقيع محفوظة في GitHub Secrets ولا توجد داخل المستودع.
 
-## المميزات
-### الفيديو
-- كمّل من مكان ما وقفت، تشغيل تلقائي للتالي، قائمة تشغيل، تكرار، سرعة 0.25x–3x
-- لمسات: سطوع / صوت / تقديم + ضغطتين لليمين والشمال للتقديم والتأخير + **ضغطتين في النص للتشغيل/الإيقاف**
-- ضغطة مطوّلة = 2x، قفل الشاشة، نافذة عايمة (PiP)، لفّ الشاشة، أحجام الصورة
-- ترجمة داخلية أو من ملف (SRT / VTT / ASS) + **لون الترجمة وخلفيتها**
-- **وضع الصوت فقط (سماعة) بيكمّل في الخلفية بإشعار ميديا وأزرار الشاشة المقفولة**، تضخيم الصوت لحد +15dB، كتم، تكرار مقطع A-B، مؤقت نوم، زر تخطي المقدمة، معلومات الفيديو
-- **مفضلة الفيديو** + تشغيل من رابط (MP4 / HLS / DASH) + حذف ومشاركة
-
-### الموسيقى
-- ألبومات، فنانين، قوائم تشغيل، مفضلة، الأكثر تشغيلًا، المضافة مؤخرًا
-- معادل صوتي + باس + صوت محيطي، مؤقت نوم، سرعة التشغيل
-- **تحديد متعدد (ضغطة مطوّلة): تشغيل/مشاركة/حذف/إضافة لقائمة**، تخطي الصمت، مسح/ترتيب القائمة الحالية وحفظها كقائمة تشغيل، معلومات الأغنية، حذفها من الجهاز
-
-### عام
-- ألوان ديناميكية + ألوان ثابتة + **وضع AMOLED**
-- **إحصائيات المكتبة، نسخ احتياطي واسترجاع (المفضلة والقوائم)، مسح السجلات**
+The release APK is built through GitHub Actions. Signing credentials are stored in GitHub Secrets and are not included in the repository.
 
 ## License
+MIT License — see [LICENSE](LICENSE).
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file.
 Copyright (c) 2026 Mohamed Abdalnaby.
