@@ -27,3 +27,8 @@
 ### عام
 - ألوان ديناميكية + ألوان ثابتة + **وضع AMOLED**
 - **إحصائيات المكتبة، نسخ احتياطي واسترجاع (المفضلة والقوائم)، مسح السجلات**
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file.
+Copyright (c) 2026 Mohamed Abdalnaby.
