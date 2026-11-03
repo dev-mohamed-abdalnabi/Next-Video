@@ -27,6 +27,11 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Assemble Project Structure & Generate All Resources
+        env:
+          FLOW_KEYSTORE_BASE64: ${{ secrets.FLOW_KEYSTORE_BASE64 }}
+          FLOW_STORE_PASSWORD: ${{ secrets.FLOW_STORE_PASSWORD }}
+          FLOW_KEY_ALIAS: ${{ secrets.FLOW_KEY_ALIAS }}
+          FLOW_KEY_PASSWORD: ${{ secrets.FLOW_KEY_PASSWORD }}
         run: |
           # 1. إنشاء كافة المجلدات المطلوبة للمشروع والموارد
           mkdir -p app/src/main/java/app/flowplay
@@ -133,12 +138,8 @@ jobs:
           fi
 
           # 8. مفتاح التوقيع
-          if [ -f "flow.jks" ]; then
-              cp flow.jks app/flow.jks
-          else
-              keytool -genkeypair -v -keystore app/flow.jks -alias flow -keyalg RSA -keysize 2048 -validity 10000 \
-                -storepass ***REMOVED_SIGNING_SECRET*** -keypass ***REMOVED_SIGNING_SECRET*** -dname "CN=FlowPlay, OU=App, O=Flow, L=City, S=State, C=US"
-          fi
+          test -n "$FLOW_KEYSTORE_BASE64"
+          printf '%s' "$FLOW_KEYSTORE_BASE64" | base64 -d > app/flow.jks
 
           # 9. ضبط إصدار جرادل المتوافق 8.11.1
           gradle wrapper --gradle-version 8.11.1

@@ -20,9 +20,9 @@ android {
     signingConfigs {
         create("flow") {
             storeFile = file("flow.jks")
-            storePassword = "***REMOVED_SIGNING_SECRET***"
-            keyAlias = "flow"
-            keyPassword = "***REMOVED_SIGNING_SECRET***"
+            storePassword = System.getenv("FLOW_STORE_PASSWORD") ?: error("FLOW_STORE_PASSWORD is required for release builds")
+            keyAlias = System.getenv("FLOW_KEY_ALIAS") ?: error("FLOW_KEY_ALIAS is required for release builds")
+            keyPassword = System.getenv("FLOW_KEY_PASSWORD") ?: error("FLOW_KEY_PASSWORD is required for release builds")
         }
     }
     buildTypes {
